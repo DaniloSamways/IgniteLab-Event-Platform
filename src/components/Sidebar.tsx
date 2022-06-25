@@ -33,15 +33,17 @@ export function Sidebar() {
         Cronograma das aulas
       </span>
 
-      <div className="flex flex-col gap-8">
-        {data?.lessons.map(lesson => (
-          <Lesson key={lesson.id}
-            title={lesson.title}
-            slug={lesson.slug}
-            availableAt={new Date(lesson.availableAt)}
-            type={lesson.lessonType}
-          />
-        ))}
+      <div>
+        <div className="lesson-scrollbar flex flex-col gap-8 pl-2 max-h-[73vh] overflow overflow-y-auto">
+          {data?.lessons.map(lesson => (
+            <Lesson key={lesson.id}
+              title={lesson.title}
+              slug={lesson.slug}
+              availableAt={new Date(lesson.availableAt)}
+              type={lesson.lessonType}
+            />
+          ))}
+        </div>
       </div>
     </aside>
   )
